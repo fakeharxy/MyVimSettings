@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/harxy/Projects/Jfocus'
+let g:netrw_dirhist_2='/Users/harxy/Projects/Jfocus/app'
+let g:netrw_dirhist_3='/Users/harxy/Projects/Jfocus/app/assets'
+let g:netrw_dirhist_4='/Users/harxy/Projects/Jfocus/app/assets/javascripts'
+let g:netrw_dirhist_5='/Users/harxy/Projects/Jfocus'
+let g:netrw_dirhist_6='/Users/harxy/Projects/mention_me'
+let g:netrw_dirhist_7='/Users/harxy/Projects/Jfocus'
