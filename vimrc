@@ -4,18 +4,20 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'sukima/xmledit'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-commentary'
-Plugin 'mrtazz/simplenote.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'tpope/vim-surround'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'terryma/vim-expand-region'
+Plugin 'lad/vim-rubocop'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
@@ -39,7 +41,9 @@ let g:Powerline_symbols='unicode'
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard=unnamed
+endif
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set hlsearch                    " highlight matches
@@ -129,9 +133,10 @@ noremap <S-h> gT
 nnoremap <tab> <C-W>w
 vnoremap <tab> <C-W>w
 map <Leader>r :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+nnoremap <leader>s :RubocopThis<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>j :!jasmine<enter>
 set wrap
 set linebreak
 set nolist
