@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/harxy/Projects/spytful'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/harxy/Projects/railscaptur/client/src/components'
+let g:netrw_dirhist_2='/Users/harxy/Projects/railscaptur/client/src/components/sidebar'
+let g:netrw_dirhist_3='/Users/harxy/Projects/railscaptur/client/src/components'
+let g:netrw_dirhist_4='/Users/harxy/Projects/railscaptur/client/src'

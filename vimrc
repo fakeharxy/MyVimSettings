@@ -22,6 +22,8 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-vinegar'
+Plugin 'pangloss/vim-javascript'
+ Plugin 'mxw/vim-jsx'
 call vundle#end()
 
 syntax on
@@ -168,7 +170,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
 if executable('ag')
