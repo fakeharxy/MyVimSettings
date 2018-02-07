@@ -53,7 +53,6 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 set lazyredraw
 set ttyfast
-source ~/.simplenote
 
 set timeoutlen=1000 ttimeoutlen=0
 nnoremap go o<ESC>k
