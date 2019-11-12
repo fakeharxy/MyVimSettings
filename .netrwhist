@@ -1,6 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/harxy/Projects/bridgey/public'
-let g:netrw_dirhist_2='/Users/harxy/Projects/bridgey/public/csv'
-let g:netrw_dirhist_3='/Users/harxy/Projects/bridgey'
-let g:netrw_dirhist_4='/Users/paulharker'
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/paulharker/.vim'
+let g:netrw_dirhist_6='/Users/paulharker/projects/fakeharxy.github.io'
+let g:netrw_dirhist_5='/Users/paulharker/projects/postcode_sinatra'
+let g:netrw_dirhist_4='/Users/paulharker/projects/postcode_sinatra/helpers'
+let g:netrw_dirhist_3='/Users/paulharker/projects/postcode_sinatra'
+let g:netrw_dirhist_2='/Users/paulharker/projects/postcode_sinatra/helpers'
+let g:netrw_dirhist_1='/Users/paulharker/projects/postcode_sinatra/spec/acceptance'
+let g:netrw_dirhist_0='/Users/paulharker/projects/postcode_sinatra/spec'
+let g:netrw_dirhist_9='/Users/paulharker/projects/postcode_sinatra/spec/helpers'
+let g:netrw_dirhist_8='/Users/paulharker/projects/postcode_sinatra/spec'

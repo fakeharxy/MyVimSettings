@@ -5,10 +5,13 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'sukima/xmledit'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'mattn/emmet-vim'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'bling/vim-airline'
@@ -20,10 +23,14 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'lad/vim-rubocop'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ervandew/supertab'
+Plugin 'elmcast/elm-vim'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-vinegar'
 Plugin 'pangloss/vim-javascript'
- Plugin 'mxw/vim-jsx'
+Plugin 'mxw/vim-jsx'
+Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
+Plugin 'honza/vim-snippets'
 call vundle#end()
 
 syntax on
@@ -35,8 +42,10 @@ set splitright
 scriptencoding utf-8
 set encoding=utf-8
 set modelines=0
+set autoread
 
 set formatoptions-=t
+let g:ctrlp_use_caching = 0
 
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols='unicode'
@@ -60,6 +69,9 @@ nnoremap gO O<ESC>j
 nnoremap gr o<ESC>kO<ESC>j
 imap jj <Esc>
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let mapleader = ','
 
 let g:ctrlp_show_hidden = 1
@@ -84,7 +96,7 @@ call Tabs()
 
 noremap <leader>m :Autoformat<CR>
 nnoremap <Leader>f :CtrlP<CR>
-nnoremap <Leader>t :TagbarToggle<CR>
+nnoremap <Leader>t :TagbarToggle<CR><C-W>w
 nnoremap \ :Ag<Space>
 noremap <Leader>/ :Commentary<CR>
 noremap cp yap<S-}>p
@@ -157,11 +169,8 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_check_on_wq = 0
 let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor --hidden --skip-vcs-ignores -g ""'
 " let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
