@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/paul/.vim'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/paul/sh24_projects/admin'
+let g:netrw_dirhist_2='/Users/paul/sh24_projects/admin/.circleci'
+let g:netrw_dirhist_1='/Users/paul/sh24_projects/admin'
+let g:netrw_dirhist_0='/Users/paul/sh24_projects/developer_handbook'
+let g:netrw_dirhist_9='/Users/paul/sh24_projects/developer_handbook/content/how-to'
+let g:netrw_dirhist_8='/Users/paul/sh24_projects/developer_handbook/content'
+let g:netrw_dirhist_7='/Users/paul/sh24_projects/developer_handbook'
+let g:netrw_dirhist_6='/Users/paul/sh24_projects/developer_handbook/content/how-to'
+let g:netrw_dirhist_5='/Users/paul/sh24_projects/developer_handbook/content'
+let g:netrw_dirhist_4='/Users/paul/sh24_projects/developer_handbook'

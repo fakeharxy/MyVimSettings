@@ -1,9 +1,11 @@
 set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'mtth/scratch.vim'
 Plugin 'sukima/xmledit'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'mattn/emmet-vim'
@@ -12,10 +14,11 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-rails'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-commentary'
+Plugin 'slim-template/vim-slim'
 Plugin 'xolox/vim-misc'
 Plugin 'tpope/vim-surround'
 Plugin 'thoughtbot/vim-rspec'
@@ -31,6 +34,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'honza/vim-snippets'
+Plugin 'junegunn/fzf.vim'
 call vundle#end()
 
 syntax on
@@ -45,16 +49,12 @@ set modelines=0
 set autoread
 
 set formatoptions-=t
-let g:ctrlp_use_caching = 0
 
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols='unicode'
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-if $TMUX == ''
-  set clipboard=unnamed
-endif
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set hlsearch                    " highlight matches
@@ -74,10 +74,16 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let mapleader = ','
 
-let g:ctrlp_show_hidden = 1
-
 map q: :q
-let g:hardtime_default_on = 1
+
+
+
+let g:scratch_no_mappings = 1
+nmap gs :ScratchInsert<CR>
+nmap gS :Scratch<CR>
+xmap gs :ScratchSelection<CR>
+xmap gS :ScratchSelection!<CR>
+let g:scratch_height=12
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -95,8 +101,10 @@ endfu
 call Tabs()
 
 noremap <leader>m :Autoformat<CR>
-nnoremap <Leader>f :CtrlP<CR>
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
 nnoremap <Leader>t :TagbarToggle<CR><C-W>w
+set tags=./tags,tags;$HOME
 nnoremap \ :Ag<Space>
 noremap <Leader>/ :Commentary<CR>
 noremap cp yap<S-}>p
@@ -106,10 +114,11 @@ nnoremap <Leader>w :w<CR>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 nnoremap <Leader>v <C-w>v<C-w>l
-nnoremap <Leader>h <C-w>s<C-w>j
 
 nnoremap <Leader>z <C-W>\|<C-W>_
 nnoremap <Leader>= <C-W>=
+
+let g:rspec_command = "!bundle exec rspec --drb {spec}"
 
 nnoremap <Leader>V V`]
 nnoremap <Leader>g :!tig --all<CR>
@@ -132,8 +141,9 @@ set number
 set undofile
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 nnoremap / /\v
-nnoremap <Leader>b :CtrlPBuffer<CR>
 let g:hardtime_maxcount = 3
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>h :History<CR>
 vnoremap / /\v
 set ignorecase
 set smartcase
@@ -147,8 +157,8 @@ nnoremap <tab> <C-W>w
 vnoremap <tab> <C-W>w
 map <Leader>r :call RunCurrentSpecFile()<CR>
 nnoremap <leader>s :RubocopThis<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>l :.Rails<CR>
+map <Leader>a :AT<CR>
 map <Leader>j :!jasmine<enter>
 set wrap
 set linebreak
@@ -157,7 +167,6 @@ set textwidth=0
 set formatoptions=qrn1
 set colorcolumn=85
 
-nnoremap <leader>. :CtrlPTag<cr>
 nnoremap j gj
 nnoremap k gk
 
@@ -171,14 +180,10 @@ vnoremap <F1> <ESC>
 set statusline+=%#warningmsg#
 set statusline+=%*
 
-let g:ctrlp_user_command = 'ag %s --files-with-matches --nocolor --hidden --skip-vcs-ignores -g ""'
-" let g:ruby_path = system('echo $HOME/.rbenv/shims')
-
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
